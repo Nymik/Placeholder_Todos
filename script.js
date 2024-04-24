@@ -41,8 +41,22 @@ function getTodo(e) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      data.forEach((todo) => {
-        createSpanTodo(todo.title);
+      data.forEach((element) => {
+        var span = document.createElement('span');
+        span.classList.add(
+          'text-slate-100',
+          'font-bold',
+          'text-2xl',
+          'p-3',
+          'm-7',
+          'rounded',
+          'border-4',
+          'bg-cyan-400',
+          'border-cyan-600'
+        );
+        span.textContent = element.title;
+
+        divTodos.appendChild(span);
       });
     });
 }
